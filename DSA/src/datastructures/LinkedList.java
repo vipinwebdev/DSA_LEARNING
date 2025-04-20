@@ -81,5 +81,22 @@ public class LinkedList {
 		
 		return temp;
 	}
+	
+	/**
+	 * Appends the item at the start of linked list 
+	 */
+	public Node prependNode(int value) {
+		Node newNode = new Node(value);
+		if(length == 0) {
+			head = newNode;
+			tail = newNode;
+		}else {
+			newNode.next=head;
+			head=newNode;
+		}
+		length++;
+		
+		return head;
+	}
 
 }

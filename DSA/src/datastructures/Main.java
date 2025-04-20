@@ -18,7 +18,8 @@ public class Main {
 			System.out.print(temp.value+" ");
 			temp=temp.next;
 		}
-		System.out.print("\nremoved " + linkedList.removeLast().value);
+//		System.out.print("\nremoved " + linkedList.removeLast().value);
+		System.out.print("\nPrepended " + linkedList.prependNode(3).value);
 		
 		System.out.print("\nUpdated Linked List ");
 		Node temp1=linkedList.getHead();
