@@ -6,9 +6,10 @@ public class Main {
 		
 		
 		LinkedList linkedList = new LinkedList(1);
-		linkedList.append(2);
+		linkedList.append(6);
 		linkedList.append(3);
 		linkedList.append(4);
+		linkedList.append(3);
 		linkedList.append(5);
 //		linkedList.append(8);
 		System.out.print("\n================ Initials =======================\n");
@@ -32,7 +33,13 @@ public class Main {
 //		System.out.print("\nRemove from index : " + linkedList.removeItem(3));
 //		System.out.print("\nReverse : ");linkedList.reverse();
 //		System.out.print("\nMiddle Node : "+linkedList.findMiddleNode().value);
-		System.out.print("\nHas loop : "+linkedList.hasLoop());
+//		System.out.print("\nHas loop : "+linkedList.hasLoop());
+//		System.out.print("\nGet Kth node from the end : "+linkedList.findKthFromEnd(2).value);
+//		linkedList.partitionList(3);
+//		linkedList.removeDuplicates();
+//		linkedList.reverseBetween(1,3);
+		System.out.print("\nSwap pairs : "+linkedList.findKthFromEnd(2).value);
+		linkedList.swapPairs();
 		
 		
 		System.out.println("\n=================================================\nUpdated Head: "+linkedList.getHead().value);

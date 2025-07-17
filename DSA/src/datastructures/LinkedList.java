@@ -1,5 +1,8 @@
 package datastructures;
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Node {
 	int value;
 	Node next;
@@ -7,6 +10,12 @@ class Node {
 	Node(int value) {
 		this.value = value;
 	}
+
+	@Override
+	public String toString() {
+		return "Node [value=" + value + ", next=" + next + "]";
+	}
+
 }
 
 public class LinkedList {
@@ -218,4 +227,106 @@ public class LinkedList {
 		return false;
 	}
 
+	public Node findKthFromEnd(int k) {
+
+		Node first = head;
+		Node second = head;
+		for (int i = 0; i < k; i++) {
+			if (first == null)
+				return null;
+			first = first.next;
+		}
+		while (first != null) {
+			first = first.next;
+			second = second.next;
+		}
+		return second;
+	}
+
+	public void partitionList(int x) {
+		Node beforeHead = new Node(0); // Dummy node for values < x
+		Node afterHead = new Node(0); // Dummy node for values >= x
+
+		Node before = beforeHead;
+		Node after = afterHead;
+		Node current = head;
+
+		while (current != null) {
+			if (current.value < x) {
+				before.next = current;
+				before = before.next;
+			} else {
+				after.next = current;
+				after = after.next;
+			}
+			current = current.next;
+		}
+
+		after.next = null;
+		before.next = afterHead.next;
+
+		head = beforeHead.next;
+	}
+
+	public void removeDuplicates() {
+		Set<Integer> seen = new HashSet<>();
+		Node current = head;
+		Node prev = null;
+
+		while (current != null) {
+			if (seen.contains(current.value)) {
+				if(prev !=null) {
+					prev.next = current.next; // remove duplicate
+					length--;
+				}
+				
+			} else {
+				seen.add(current.value);
+				prev = current;
+			}
+			current = current.next;
+		}
+	}
+	
+	// WRITE THE REVERSEBETWEEN METHOD HERE //
+    public void reverseBetween(int startIndex, int endIndex){
+        if (head == null || startIndex >= endIndex) return;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
+        for (int i = 0; i < startIndex; i++) {
+            if (prev == null) return;
+            prev = prev.next;
+        }
+        Node current = prev.next;
+        Node toMove;
+        for(int i = 0; i<endIndex-startIndex && current.next != null;i++){
+            toMove = current.next;
+            current.next = toMove.next;
+            toMove.next = prev.next;
+            prev.next = toMove;
+        }
+        head=dummy.next;
+        
+    }
+    //////////////////////////////////////////
+
+    public void swapPairs(){
+    	if (head == null) return;
+    	Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
+        
+        while (prev.next != null && prev.next.next != null) {
+            Node first = prev.next;
+            Node second = first.next;
+            
+            first.next = second.next;
+            second.next = first;
+            prev.next = second;
+            
+            prev = first;
+        }
+        head=dummy.next;
+    }
 }
