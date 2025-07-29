@@ -3,11 +3,11 @@ package datastructures;
 import java.util.HashSet;
 import java.util.Set;
 
-class Node {
+class Node1 {
 	int value;
-	Node next;
+	Node1 next;
 
-	Node(int value) {
+	Node1(int value) {
 		this.value = value;
 	}
 
@@ -19,30 +19,30 @@ class Node {
 }
 
 public class LinkedList {
-	private Node head;
-	private Node tail;
+	private Node1 head;
+	private Node1 tail;
 	private int length;
 
 	public LinkedList(int value) {
-		Node newNode = new Node(value);
+		Node1 newNode = new Node1(value);
 		head = newNode;
 		tail = newNode;
 		length = 1;
 	}
 
-	public Node getHead() {
+	public Node1 getHead() {
 		return head;
 	}
 
-	public void setHead(Node head) {
+	public void setHead(Node1 head) {
 		this.head = head;
 	}
 
-	public Node getTail() {
+	public Node1 getTail() {
 		return tail;
 	}
 
-	public void setTail(Node tail) {
+	public void setTail(Node1 tail) {
 		this.tail = tail;
 	}
 
@@ -58,7 +58,7 @@ public class LinkedList {
 	 * Append last
 	 */
 	public void append(int value) {
-		Node newNode = new Node(value);
+		Node1 newNode = new Node1(value);
 		if (length == 0) {
 			head = newNode;
 			tail = newNode;
@@ -72,11 +72,11 @@ public class LinkedList {
 	/**
 	 * Remove last item from linked list
 	 */
-	public Node removeLast() {
+	public Node1 removeLast() {
 		if (length == 0)
 			return null;
-		Node temp = head;
-		Node pre = head;
+		Node1 temp = head;
+		Node1 pre = head;
 		while (temp.next != null) {
 			pre = temp;
 			temp = temp.next;
@@ -95,8 +95,8 @@ public class LinkedList {
 	/**
 	 * Appends the item at the start of linked list
 	 */
-	public Node prependNode(int value) {
-		Node newNode = new Node(value);
+	public Node1 prependNode(int value) {
+		Node1 newNode = new Node1(value);
 		if (length == 0) {
 			head = newNode;
 			tail = newNode;
@@ -112,8 +112,8 @@ public class LinkedList {
 	/**
 	 * Remove item from the start of linked list
 	 */
-	public Node removeFirst() {
-		Node first = head;
+	public Node1 removeFirst() {
+		Node1 first = head;
 		if (length == 0)
 			return null;
 		head = head.next;
@@ -126,10 +126,10 @@ public class LinkedList {
 
 	}
 
-	public Node getNode(int index) {
+	public Node1 getNode(int index) {
 		if (index < 0 || index >= length)
 			return null;
-		Node temp = head;
+		Node1 temp = head;
 		for (int i = 0; i < index; i++) {
 			temp = temp.next;
 		}
@@ -137,9 +137,9 @@ public class LinkedList {
 	}
 
 	public boolean setNode(int index, int value) {
-		Node node = getNode(index);
-		if (node != null) {
-			node.value = value;
+		Node1 node1 = getNode(index);
+		if (node1 != null) {
+			node1.value = value;
 			return true;
 		}
 
@@ -159,35 +159,35 @@ public class LinkedList {
 			length++;
 			return true;
 		}
-		Node node = new Node(value);
-		Node temp = getNode(index - 1);
-		node.next = temp.next;
-		temp.next = node;
+		Node1 node1 = new Node1(value);
+		Node1 temp = getNode(index - 1);
+		node1.next = temp.next;
+		temp.next = node1;
 		length++;
 		return true;
 	}
 
-	public Node removeItem(int index) {
+	public Node1 removeItem(int index) {
 		if (index < 0 || index >= length)
 			return null;
 		if (index == 0)
 			return removeFirst();
 		if (index == length - 1)
 			return removeLast();
-		Node node = getNode(index - 1);
-		Node temp = node.next;
-		node.next = temp.next;
+		Node1 node1 = getNode(index - 1);
+		Node1 temp = node1.next;
+		node1.next = temp.next;
 		temp.next = null;
 		length--;
 		return temp;
 	}
 
 	public void reverse() {
-		Node temp = head;
+		Node1 temp = head;
 		head = tail;
 		tail = temp;
-		Node after = null;
-		Node before = null;
+		Node1 after = null;
+		Node1 before = null;
 		for (int i = 0; i < length; i++) {
 			after = temp.next;
 			temp.next = before;
@@ -196,12 +196,12 @@ public class LinkedList {
 		}
 	}
 
-	public Node findMiddleNode() {
+	public Node1 findMiddleNode() {
 		if (head == null)
 			return null;
 
-		Node slow = head;
-		Node fast = head;
+		Node1 slow = head;
+		Node1 fast = head;
 
 		while (fast != null && fast.next != null) {
 			slow = slow.next;
@@ -215,8 +215,8 @@ public class LinkedList {
 		if (head == null)
 			return false;
 
-		Node slow = head;
-		Node fast = head;
+		Node1 slow = head;
+		Node1 fast = head;
 
 		while (fast != null && fast.next != null) {
 			slow = slow.next;
@@ -227,10 +227,10 @@ public class LinkedList {
 		return false;
 	}
 
-	public Node findKthFromEnd(int k) {
+	public Node1 findKthFromEnd(int k) {
 
-		Node first = head;
-		Node second = head;
+		Node1 first = head;
+		Node1 second = head;
 		for (int i = 0; i < k; i++) {
 			if (first == null)
 				return null;
@@ -244,12 +244,12 @@ public class LinkedList {
 	}
 
 	public void partitionList(int x) {
-		Node beforeHead = new Node(0); // Dummy node for values < x
-		Node afterHead = new Node(0); // Dummy node for values >= x
+		Node1 beforeHead = new Node1(0); // Dummy node for values < x
+		Node1 afterHead = new Node1(0); // Dummy node for values >= x
 
-		Node before = beforeHead;
-		Node after = afterHead;
-		Node current = head;
+		Node1 before = beforeHead;
+		Node1 after = afterHead;
+		Node1 current = head;
 
 		while (current != null) {
 			if (current.value < x) {
@@ -270,8 +270,8 @@ public class LinkedList {
 
 	public void removeDuplicates() {
 		Set<Integer> seen = new HashSet<>();
-		Node current = head;
-		Node prev = null;
+		Node1 current = head;
+		Node1 prev = null;
 
 		while (current != null) {
 			if (seen.contains(current.value)) {
@@ -291,15 +291,15 @@ public class LinkedList {
 	// WRITE THE REVERSEBETWEEN METHOD HERE //
     public void reverseBetween(int startIndex, int endIndex){
         if (head == null || startIndex >= endIndex) return;
-        Node dummy = new Node(0);
+        Node1 dummy = new Node1(0);
         dummy.next = head;
-        Node prev = dummy;
+        Node1 prev = dummy;
         for (int i = 0; i < startIndex; i++) {
             if (prev == null) return;
             prev = prev.next;
         }
-        Node current = prev.next;
-        Node toMove;
+        Node1 current = prev.next;
+        Node1 toMove;
         for(int i = 0; i<endIndex-startIndex && current.next != null;i++){
             toMove = current.next;
             current.next = toMove.next;
@@ -313,13 +313,13 @@ public class LinkedList {
 
     public void swapPairs(){
     	if (head == null) return;
-    	Node dummy = new Node(0);
+    	Node1 dummy = new Node1(0);
         dummy.next = head;
-        Node prev = dummy;
+        Node1 prev = dummy;
         
         while (prev.next != null && prev.next.next != null) {
-            Node first = prev.next;
-            Node second = first.next;
+            Node1 first = prev.next;
+            Node1 second = first.next;
             
             first.next = second.next;
             second.next = first;
