@@ -55,7 +55,7 @@ public class Main {
 		 */
 		
 		//===================================================================================
-		DoublyLinkedList doublyLinkedList = new DoublyLinkedList(2);
+		DoublyLinkedList doublyLinkedList = new DoublyLinkedList(1);
 		System.out.print("\n================ Initials =======================\n");
 		doublyLinkedList.getHead();
 		doublyLinkedList.getTail();
@@ -65,10 +65,10 @@ public class Main {
 		
 		System.out.print("\n================ Operation =======================");
 		System.out.print("\nAppend: ");
+		doublyLinkedList.append(2);
 		doublyLinkedList.append(3);
 		doublyLinkedList.append(4);
 		doublyLinkedList.append(5);
-		doublyLinkedList.append(6);
 		doublyLinkedList.printList();
 		System.out.print("\n");
 		doublyLinkedList.getLength();
@@ -92,8 +92,14 @@ public class Main {
 //		System.out.print("\nSet node by index: ");
 //		System.out.print(doublyLinkedList.set(3,9));
 		
-		System.out.print("\nInsert: ");
-		System.out.print(doublyLinkedList.insert(3,9));
+//		System.out.print("\nInsert: ");
+//		System.out.print(doublyLinkedList.insert(3,9));
+//		System.out.print("\nRemove: ");
+//		System.out.print(doublyLinkedList.remove(3).value);
+//		System.out.print("\nPalindrome: ");
+//		System.out.print(doublyLinkedList.isPalindrome());
+		System.out.print("\nReverse: ");
+		doublyLinkedList.reverse();
 		
 		System.out.println("\n=================================================\nUpdated: ");
 		doublyLinkedList.getHead();
